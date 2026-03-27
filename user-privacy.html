@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>User Privacy Choices — Vex by Àjamais</title>
+  <meta name="description" content="Your privacy choices for the Vex app." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .legal-page { padding: 140px 0 120px; }
+    .legal-header { margin-bottom: 56px; padding-bottom: 32px; border-bottom: 1px solid var(--border); }
+    .legal-header .eyebrow { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-3); margin-bottom: 14px; }
+    .legal-header h1 { font-size: clamp(2rem, 4vw, 3rem); font-family: 'Space Grotesk', sans-serif; font-weight: 700; letter-spacing: -0.025em; margin-bottom: 12px; }
+    .legal-header .updated { font-size: 0.82rem; color: var(--text-3); }
+    .legal-body { max-width: 720px; }
+    .legal-body h2 { font-size: 1.05rem; font-weight: 700; font-family: 'Space Grotesk', sans-serif; letter-spacing: -0.01em; margin: 44px 0 12px; color: var(--text); }
+    .legal-body p { font-size: 0.95rem; color: var(--text-2); line-height: 1.85; margin-bottom: 12px; }
+    .legal-body ul { margin: 8px 0 12px 20px; }
+    .legal-body ul li { font-size: 0.95rem; color: var(--text-2); line-height: 1.85; margin-bottom: 6px; }
+    .legal-body a { color: var(--text); text-decoration: underline; text-underline-offset: 3px; }
+    .legal-body a:hover { color: var(--text-2); }
+    .legal-email { display: inline-block; margin-top: 4px; font-weight: 600; color: var(--text); font-size: 0.95rem; }
+    .legal-divider { margin: 8px 0 0; }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav id="navbar" class="scrolled">
+    <div class="nav-inner">
+      <a href="/" class="logo">
+        <svg class="logo-icon" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="6" y="6" width="88" height="88" rx="20" stroke="currentColor" stroke-width="6"/>
+          <path d="M32 62 C18 62 18 38 32 38 C46 38 54 62 68 62 C82 62 82 38 68 38" stroke="currentColor" stroke-width="5.5" stroke-linecap="round" fill="none"/>
+          <circle cx="32" cy="50" r="5" fill="currentColor"/>
+          <circle cx="68" cy="50" r="5" fill="currentColor"/>
+          <circle cx="50" cy="40" r="5" fill="currentColor"/>
+        </svg>
+        <span class="logo-text">Àjamais</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="/#products">Products</a></li>
+        <li><a href="/#about">About</a></li>
+        <li><a href="/#contact">Contact</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="/#products">Products</a>
+      <a href="/#about">About</a>
+      <a href="/#contact">Contact</a>
+    </div>
+  </nav>
+
+  <main class="legal-page">
+    <div class="container">
+      <div class="legal-header">
+        <p class="eyebrow">Vex — Privacy</p>
+        <h1>User Privacy Choices</h1>
+        <p class="updated">Last updated: November 24, 2025</p>
+      </div>
+
+      <div class="legal-body">
+        <p>At VEX, we respect your privacy and give you control over your personal information. This page explains the choices you can make regarding how your data is collected and used.</p>
+
+        <h2>1. Request to Access or Delete Your Data</h2>
+        <p>You may request:</p>
+        <ul>
+          <li>A copy of your personal data</li>
+          <li>Deletion of your account and associated data</li>
+          <li>Correction of inaccurate information</li>
+        </ul>
+        <p>To make a request, contact us at:</p>
+        <a href="mailto:vex@ajamais.ai" class="legal-email">vex@ajamais.ai</a>
+        <p class="legal-divider">We will verify your identity before processing your request.</p>
+
+        <h2>2. Opt Out of Analytics</h2>
+        <p>You may choose to limit how we use analytics tools to improve the app's performance.</p>
+        <p>If you want to opt out of analytics tracking, contact us at:</p>
+        <a href="mailto:vex@ajamais.ai" class="legal-email">vex@ajamais.ai</a>
+        <p class="legal-divider">We will process your request within a reasonable timeframe.</p>
+
+        <h2>3. Opt Out of Personalized Content</h2>
+        <p>If the app uses personalization (recommendations, matching, etc.), you can request to disable such features.</p>
+        <p>To opt out, email us at:</p>
+        <a href="mailto:vex@ajamais.ai" class="legal-email">vex@ajamais.ai</a>
+        <p class="legal-divider">Disabling personalization may affect app functionality.</p>
+
+        <h2>4. Revoke Microphone or Camera Access</h2>
+        <p>You can disable access at any time:</p>
+        <ul>
+          <li><strong>iOS:</strong> Settings → Privacy → Microphone / Camera → Toggle off VEX</li>
+        </ul>
+
+        <h2>5. Delete Account from Inside the App</h2>
+        <p>If the app includes an in-app "Delete Account" button, you may use it at any time.</p>
+        <p>If not available, please email us and we will delete your data manually.</p>
+
+        <h2>6. Contact Us</h2>
+        <p>If you have questions about your privacy choices, contact us at:</p>
+        <a href="mailto:vex@ajamais.ai" class="legal-email">vex@ajamais.ai</a>
+      </div>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <a href="/" class="logo">
+            <svg class="logo-icon" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="6" y="6" width="88" height="88" rx="20" stroke="currentColor" stroke-width="6"/>
+              <path d="M32 62 C18 62 18 38 32 38 C46 38 54 62 68 62 C82 62 82 38 68 38" stroke="currentColor" stroke-width="5.5" stroke-linecap="round" fill="none"/>
+              <circle cx="32" cy="50" r="5" fill="currentColor"/>
+              <circle cx="68" cy="50" r="5" fill="currentColor"/>
+              <circle cx="50" cy="40" r="5" fill="currentColor"/>
+            </svg>
+            <span class="logo-text">Àjamais</span>
+          </a>
+          <p>À jamais — forever.</p>
+        </div>
+        <div class="footer-links">
+          <div class="footer-col">
+            <h5>Products</h5>
+            <a href="https://vex.social" target="_blank" rel="noopener">Vex ↗</a>
+            <a href="/#products">OneLian</a>
+            <a href="/#products">Structora</a>
+          </div>
+          <div class="footer-col">
+            <h5>Legal</h5>
+            <a href="/privacy">Privacy Policy</a>
+            <a href="/user-privacy">Privacy Choices</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 Ajamais LLC. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
