@@ -1,5 +1,5 @@
 /* ============================================================
-   AJAMAIS LANDING PAGE — script.js
+   AJAMAIS — Company Landing Page Script
    ============================================================ */
 
 // ---------- NAV SCROLL ----------
@@ -21,77 +21,26 @@ mobileMenu.querySelectorAll('a').forEach(link => {
 });
 
 // ---------- SCROLL REVEAL ----------
-const revealElements = document.querySelectorAll(
-  '.service-card, .step, .project-card, .testimonial-card, .section-header, .about-card'
-);
-
 const revealObserver = new IntersectionObserver((entries) => {
-  entries.forEach((entry, i) => {
+  entries.forEach(entry => {
     if (entry.isIntersecting) {
-      setTimeout(() => {
-        entry.target.classList.add('visible');
-      }, (entry.target.dataset.index || 0) * 80);
+      entry.target.classList.add('visible');
       revealObserver.unobserve(entry.target);
     }
   });
 }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
 
-revealElements.forEach(el => {
-  el.classList.add('reveal');
-  revealObserver.observe(el);
-});
+document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 
-// ---------- CONTACT FORM ----------
-const form = document.getElementById('contactForm');
-form.addEventListener('submit', (e) => {
-  e.preventDefault();
-  const btn = form.querySelector('button[type="submit"]');
-  const original = btn.innerHTML;
-
-  btn.innerHTML = 'Sending...';
-  btn.disabled = true;
-
-  // Simulate submission
-  setTimeout(() => {
-    btn.innerHTML = '✓ Message Sent!';
-    btn.style.background = 'linear-gradient(135deg, #10b981, #34d399)';
-    form.reset();
-
-    setTimeout(() => {
-      btn.innerHTML = original;
-      btn.style.background = '';
-      btn.disabled = false;
-    }, 3500);
-  }, 1200);
-});
-
-// ---------- SMOOTH ACTIVE NAV ----------
-const sections = document.querySelectorAll('section[id]');
-const navLinks = document.querySelectorAll('.nav-links a');
-
-const sectionObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      navLinks.forEach(link => {
-        link.style.color = link.getAttribute('href') === `#${entry.target.id}`
-          ? 'var(--text)'
-          : '';
-      });
-    }
-  });
-}, { threshold: 0.5 });
-
-sections.forEach(s => sectionObserver.observe(s));
-
-// ---------- TILT ON SERVICE CARDS (subtle) ----------
-document.querySelectorAll('.service-card').forEach(card => {
-  card.addEventListener('mousemove', (e) => {
-    const rect = card.getBoundingClientRect();
-    const x = (e.clientX - rect.left) / rect.width - 0.5;
-    const y = (e.clientY - rect.top) / rect.height - 0.5;
-    card.style.transform = `translateY(-4px) rotateX(${-y * 4}deg) rotateY(${x * 4}deg)`;
-  });
-  card.addEventListener('mouseleave', () => {
-    card.style.transform = '';
+// ---------- NOTIFY FORMS ----------
+document.querySelectorAll('.notify-form').forEach(form => {
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const product = form.dataset.product;
+    const btn = form.querySelector('.btn-notify');
+    btn.textContent = '✓ Got it!';
+    btn.style.background = 'linear-gradient(135deg, #22c55e, #16a34a)';
+    btn.disabled = true;
+    form.querySelector('input').value = '';
   });
 });
