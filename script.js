@@ -32,15 +32,3 @@ const revealObserver = new IntersectionObserver((entries) => {
 
 document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 
-// ---------- NOTIFY FORMS ----------
-document.querySelectorAll('.notify-form').forEach(form => {
-  form.addEventListener('submit', (e) => {
-    e.preventDefault();
-    const product = form.dataset.product;
-    const btn = form.querySelector('.btn-notify');
-    btn.textContent = '✓ Got it!';
-    btn.style.background = 'linear-gradient(135deg, #22c55e, #16a34a)';
-    btn.disabled = true;
-    form.querySelector('input').value = '';
-  });
-});
