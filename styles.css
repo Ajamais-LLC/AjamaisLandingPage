@@ -224,7 +224,7 @@ h1, h2, h3 {
 
 /* ---------- PARTNERS ---------- */
 .partners {
-  padding: 48px 0 64px;
+  padding: 72px 0 88px;
   border-top: 1px solid var(--border);
   border-bottom: 1px solid var(--border);
 }
@@ -236,14 +236,14 @@ h1, h2, h3 {
   text-transform: uppercase;
   color: var(--text-3);
   text-align: center;
-  margin-bottom: 36px;
+  margin-bottom: 56px;
 }
 
 .partners-row {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 64px;
+  gap: 100px;
   flex-wrap: wrap;
 }
 
@@ -251,22 +251,24 @@ h1, h2, h3 {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 10px;
-  color: var(--text-3);
-  transition: color var(--transition);
+  gap: 16px;
+  transition: opacity var(--transition);
 }
 
-.partner-logo:hover { color: var(--text); }
+.partner-logo:hover { opacity: 0.7; }
 
-.partner-logo svg {
-  width: 36px;
-  height: 36px;
+.partner-logo img {
+  width: 72px;
+  height: 72px;
+  object-fit: contain;
+  border-radius: 14px;
 }
 
 .partner-logo span {
-  font-size: 0.78rem;
+  font-size: 0.85rem;
   font-weight: 600;
   letter-spacing: 0.04em;
+  color: var(--text-2);
 }
 
 /* ---------- PRODUCTS ---------- */
