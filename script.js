@@ -1,5 +1,5 @@
 /* ============================================================
-   AJAMAIS LANDING PAGE — script.js
+   VEX — Landing Page Script
    ============================================================ */
 
 // ---------- NAV SCROLL ----------
@@ -22,15 +22,14 @@ mobileMenu.querySelectorAll('a').forEach(link => {
 
 // ---------- SCROLL REVEAL ----------
 const revealElements = document.querySelectorAll(
-  '.service-card, .step, .project-card, .testimonial-card, .section-header, .about-card'
+  '.feature-card, .moment-card, .section-header, .about-card, .platform-chip, .step'
 );
 
 const revealObserver = new IntersectionObserver((entries) => {
-  entries.forEach((entry, i) => {
+  entries.forEach(entry => {
     if (entry.isIntersecting) {
-      setTimeout(() => {
-        entry.target.classList.add('visible');
-      }, (entry.target.dataset.index || 0) * 80);
+      const delay = entry.target.dataset.index ? entry.target.dataset.index * 80 : 0;
+      setTimeout(() => entry.target.classList.add('visible'), delay);
       revealObserver.unobserve(entry.target);
     }
   });
@@ -41,31 +40,11 @@ revealElements.forEach(el => {
   revealObserver.observe(el);
 });
 
-// ---------- CONTACT FORM ----------
-const form = document.getElementById('contactForm');
-form.addEventListener('submit', (e) => {
-  e.preventDefault();
-  const btn = form.querySelector('button[type="submit"]');
-  const original = btn.innerHTML;
+// Add stagger delays to feature/moment cards
+document.querySelectorAll('.feature-card').forEach((el, i) => el.dataset.index = i);
+document.querySelectorAll('.moment-card').forEach((el, i) => el.dataset.index = i);
 
-  btn.innerHTML = 'Sending...';
-  btn.disabled = true;
-
-  // Simulate submission
-  setTimeout(() => {
-    btn.innerHTML = '✓ Message Sent!';
-    btn.style.background = 'linear-gradient(135deg, #10b981, #34d399)';
-    form.reset();
-
-    setTimeout(() => {
-      btn.innerHTML = original;
-      btn.style.background = '';
-      btn.disabled = false;
-    }, 3500);
-  }, 1200);
-});
-
-// ---------- SMOOTH ACTIVE NAV ----------
+// ---------- ACTIVE NAV ON SCROLL ----------
 const sections = document.querySelectorAll('section[id]');
 const navLinks = document.querySelectorAll('.nav-links a');
 
@@ -73,25 +52,46 @@ const sectionObserver = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
       navLinks.forEach(link => {
-        link.style.color = link.getAttribute('href') === `#${entry.target.id}`
-          ? 'var(--text)'
-          : '';
+        const isActive = link.getAttribute('href') === `#${entry.target.id}`;
+        link.style.color = isActive ? 'var(--text)' : '';
       });
     }
   });
-}, { threshold: 0.5 });
+}, { threshold: 0.4 });
 
 sections.forEach(s => sectionObserver.observe(s));
 
-// ---------- TILT ON SERVICE CARDS (subtle) ----------
-document.querySelectorAll('.service-card').forEach(card => {
-  card.addEventListener('mousemove', (e) => {
-    const rect = card.getBoundingClientRect();
-    const x = (e.clientX - rect.left) / rect.width - 0.5;
-    const y = (e.clientY - rect.top) / rect.height - 0.5;
-    card.style.transform = `translateY(-4px) rotateX(${-y * 4}deg) rotateY(${x * 4}deg)`;
-  });
-  card.addEventListener('mouseleave', () => {
-    card.style.transform = '';
+// ---------- SOUNDBOARD INTERACTION (phone mockup) ----------
+document.querySelectorAll('.sound-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.sound-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
   });
 });
+
+// ---------- APP STORE BUTTON RIPPLE ----------
+document.querySelectorAll('.btn-appstore').forEach(btn => {
+  btn.addEventListener('click', (e) => {
+    const ripple = document.createElement('span');
+    const rect = btn.getBoundingClientRect();
+    ripple.style.cssText = `
+      position:absolute;width:0;height:0;
+      background:rgba(0,0,0,0.1);
+      border-radius:50%;
+      transform:translate(-50%,-50%);
+      left:${e.clientX - rect.left}px;
+      top:${e.clientY - rect.top}px;
+      animation:rippleEffect 0.6s linear;
+      pointer-events:none;
+    `;
+    btn.style.position = 'relative';
+    btn.style.overflow = 'hidden';
+    btn.appendChild(ripple);
+    setTimeout(() => ripple.remove(), 600);
+  });
+});
+
+// Inject ripple keyframe
+const style = document.createElement('style');
+style.textContent = `@keyframes rippleEffect{to{width:300px;height:300px;opacity:0}}`;
+document.head.appendChild(style);
