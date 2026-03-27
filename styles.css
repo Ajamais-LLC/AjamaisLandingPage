@@ -122,16 +122,10 @@ h1, h2, h3 {
   color: var(--text);
 }
 
-.logo-mark {
-  width: 30px; height: 30px;
-  background: var(--text);
-  border-radius: 7px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 0.95rem;
-  color: white;
-  font-weight: 900;
+.logo-icon {
+  width: 28px; height: 28px;
+  color: var(--text);
+  flex-shrink: 0;
 }
 
 .nav-links {
