@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Zoom Integration Documentation — Structora by Àjamais</title>
+  <meta name="description" content="Documentation for the Structora Zoom integration: installation, usage, scopes, data handling, and uninstallation." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/styles.css" />
+  <style>
+    .legal-page { padding: 140px 0 120px; }
+    .legal-header { margin-bottom: 56px; padding-bottom: 32px; border-bottom: 1px solid var(--border); }
+    .legal-header .eyebrow { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-3); margin-bottom: 14px; }
+    .legal-header h1 { font-size: clamp(2rem, 4vw, 3rem); font-family: 'Space Grotesk', sans-serif; font-weight: 700; letter-spacing: -0.025em; margin-bottom: 12px; }
+    .legal-header .updated { font-size: 0.82rem; color: var(--text-3); }
+    .legal-body { max-width: 760px; }
+    .legal-body h2 { font-size: 1.05rem; font-weight: 700; font-family: 'Space Grotesk', sans-serif; letter-spacing: -0.01em; margin: 44px 0 12px; color: var(--text); }
+    .legal-body h3 { font-size: 0.92rem; font-weight: 700; font-family: 'Inter', sans-serif; margin: 20px 0 8px; color: var(--text); }
+    .legal-body p { font-size: 0.95rem; color: var(--text-2); line-height: 1.85; margin-bottom: 12px; }
+    .legal-body ol, .legal-body ul { margin: 8px 0 12px 20px; }
+    .legal-body li { font-size: 0.95rem; color: var(--text-2); line-height: 1.85; margin-bottom: 6px; }
+    .legal-body a { color: var(--text); text-decoration: underline; text-underline-offset: 3px; }
+    .legal-body code { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 0.85rem; background: rgba(127,127,127,0.12); padding: 1px 6px; border-radius: 6px; }
+    .legal-email { display: inline-block; margin-top: 4px; font-weight: 600; color: var(--text); font-size: 0.95rem; }
+  </style>
+</head>
+<body>
+
+  <nav id="navbar" class="scrolled">
+    <div class="nav-inner">
+      <a href="/" class="logo">
+        <svg class="logo-icon" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="6" y="6" width="88" height="88" rx="20" stroke="currentColor" stroke-width="6"/>
+          <path d="M32 62 C18 62 18 38 32 38 C46 38 54 62 68 62 C82 62 82 38 68 38" stroke="currentColor" stroke-width="5.5" stroke-linecap="round" fill="none"/>
+          <circle cx="32" cy="50" r="5" fill="currentColor"/>
+          <circle cx="68" cy="50" r="5" fill="currentColor"/>
+          <circle cx="50" cy="40" r="5" fill="currentColor"/>
+        </svg>
+        <span class="logo-text">Àjamais</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="/#products">Products</a></li>
+        <li><a href="/#about">About</a></li>
+        <li><a href="/#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main class="legal-page">
+    <div class="container">
+      <div class="legal-header">
+        <p class="eyebrow">Structora — Documentation</p>
+        <h1>Zoom Integration</h1>
+        <p class="updated">Last updated: April 19, 2026</p>
+      </div>
+
+      <div class="legal-body">
+        <h2>Overview</h2>
+        <p>The Structora Zoom integration brings ontology-driven structuring to your Zoom meetings. After installation, Structora can summarize, structure, and index meeting content you authorize it to process — turning conversations into reusable knowledge.</p>
+
+        <h2>Installation</h2>
+        <ol>
+          <li>Open the <a href="https://marketplace.zoom.us/" target="_blank" rel="noopener">Zoom App Marketplace</a> and sign in with your Zoom account.</li>
+          <li>Search for <strong>Structora</strong> and open the listing.</li>
+          <li>Click <strong>Add</strong> and review the permissions requested.</li>
+          <li>Authorize the app. You will be redirected to Structora to complete setup.</li>
+        </ol>
+
+        <h2>Permissions &amp; Scopes</h2>
+        <p>Structora requests only the minimum scopes required to operate. Typical scopes include:</p>
+        <ul>
+          <li><code>user:read</code> — to identify the signed-in Zoom user and display account context.</li>
+          <li><code>meeting:read</code> — to retrieve metadata for meetings you choose to structure.</li>
+          <li><code>recording:read</code> (optional) — to import meeting transcripts or recordings when you explicitly request it.</li>
+        </ul>
+        <p>You can review and revoke these scopes at any time from the Zoom Marketplace.</p>
+
+        <h2>Using Structora in a Meeting</h2>
+        <ol>
+          <li>Start or join a Zoom meeting as you normally would.</li>
+          <li>Open the <strong>Apps</strong> panel in the Zoom client and select <strong>Structora</strong>.</li>
+          <li>Sign in with your Structora account if prompted.</li>
+          <li>Choose an action — Summarize, Extract Ontology, or Save to Workspace.</li>
+          <li>Review the generated structure in the Structora side panel or open it in your Structora workspace after the meeting.</li>
+        </ol>
+
+        <h2>Data Handling</h2>
+        <p>Structora only processes the content you explicitly send to it. We transmit data over TLS and store it encrypted at rest. Access is limited to authenticated users within your workspace.</p>
+        <p>For full details, see the <a href="/structora/privacy">Privacy Policy</a>.</p>
+
+        <h2>Uninstallation</h2>
+        <ol>
+          <li>Sign in to the Zoom App Marketplace.</li>
+          <li>Click <strong>Manage</strong> &rarr; <strong>Installed Apps</strong>.</li>
+          <li>Find <strong>Structora</strong> and click <strong>Remove</strong>.</li>
+        </ol>
+        <p>Upon uninstallation, OAuth tokens are revoked immediately and associated data is deleted within 30 days.</p>
+
+        <h2>Troubleshooting</h2>
+        <h3>The app doesn't appear in my Zoom client</h3>
+        <p>Ensure your Zoom client is updated to the latest version and that your admin has approved Structora for your organization.</p>
+        <h3>Authorization failed</h3>
+        <p>Sign out of Zoom and Structora, then retry the installation. If the error persists, contact us below with the error message and timestamp.</p>
+        <h3>Missing data after a meeting</h3>
+        <p>Structora processes only content you explicitly send. If expected content is missing, verify the action was triggered during the meeting or contact support.</p>
+
+        <h2>Support</h2>
+        <p>Need help? Visit <a href="/structora/support">Structora Support</a> or email:</p>
+        <a href="mailto:structora@ajamais.ai" class="legal-email">structora@ajamais.ai</a>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <a href="/" class="logo">
+            <svg class="logo-icon" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="6" y="6" width="88" height="88" rx="20" stroke="currentColor" stroke-width="6"/>
+              <path d="M32 62 C18 62 18 38 32 38 C46 38 54 62 68 62 C82 62 82 38 68 38" stroke="currentColor" stroke-width="5.5" stroke-linecap="round" fill="none"/>
+              <circle cx="32" cy="50" r="5" fill="currentColor"/>
+              <circle cx="68" cy="50" r="5" fill="currentColor"/>
+              <circle cx="50" cy="40" r="5" fill="currentColor"/>
+            </svg>
+            <span class="logo-text">Àjamais</span>
+          </a>
+          <p>À jamais — forever.</p>
+        </div>
+        <div class="footer-links">
+          <div class="footer-col">
+            <h5>Structora</h5>
+            <a href="/structora/privacy">Privacy</a>
+            <a href="/structora/terms">Terms</a>
+            <a href="/structora/support">Support</a>
+            <a href="/structora/docs/zoom">Zoom Docs</a>
+          </div>
+          <div class="footer-col">
+            <h5>Legal</h5>
+            <a href="/privacy">Privacy Policy</a>
+            <a href="/user-privacy">Privacy Choices</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 Ajamais LLC. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/script.js"></script>
+</body>
+</html>
