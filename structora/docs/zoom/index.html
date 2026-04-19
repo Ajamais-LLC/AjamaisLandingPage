@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Zoom Integration Documentation — Structora by Àjamais</title>
-  <meta name="description" content="Documentation for the Structora Zoom integration: installation, usage, scopes, data handling, and uninstallation." />
+  <title>Zoom Integration Guide — Structora by Àjamais</title>
+  <meta name="description" content="Documentation for the Structora Zoom integration: installation, permissions, usage, and data handling." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@500;600;700;800&display=swap" rel="stylesheet" />
@@ -22,7 +22,6 @@
     .legal-body ol, .legal-body ul { margin: 8px 0 12px 20px; }
     .legal-body li { font-size: 0.95rem; color: var(--text-2); line-height: 1.85; margin-bottom: 6px; }
     .legal-body a { color: var(--text); text-decoration: underline; text-underline-offset: 3px; }
-    .legal-body code { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 0.85rem; background: rgba(127,127,127,0.12); padding: 1px 6px; border-radius: 6px; }
     .legal-email { display: inline-block; margin-top: 4px; font-weight: 600; color: var(--text); font-size: 0.95rem; }
   </style>
 </head>
@@ -52,63 +51,62 @@
     <div class="container">
       <div class="legal-header">
         <p class="eyebrow">Structora — Documentation</p>
-        <h1>Zoom Integration</h1>
-        <p class="updated">Last updated: April 19, 2026</p>
+        <h1>Structora Zoom Integration Guide</h1>
       </div>
 
       <div class="legal-body">
         <h2>Overview</h2>
-        <p>The Structora Zoom integration brings ontology-driven structuring to your Zoom meetings. After installation, Structora can summarize, structure, and index meeting content you authorize it to process — turning conversations into reusable knowledge.</p>
+        <p>Connect your company's Zoom account to Structora to schedule meetings, record them, and automatically capture transcripts for AI-powered meeting notes.</p>
 
         <h2>Installation</h2>
         <ol>
-          <li>Open the <a href="https://marketplace.zoom.us/" target="_blank" rel="noopener">Zoom App Marketplace</a> and sign in with your Zoom account.</li>
-          <li>Search for <strong>Structora</strong> and open the listing.</li>
-          <li>Click <strong>Add</strong> and review the permissions requested.</li>
-          <li>Authorize the app. You will be redirected to Structora to complete setup.</li>
+          <li>Open Structora and navigate to the Meetings tab</li>
+          <li>Click "Schedule Meeting" and select Zoom as the meeting provider</li>
+          <li>Click "Connect Zoom" — you will be redirected to Zoom</li>
+          <li>Sign in with your Zoom account and authorize Structora</li>
+          <li>Once connected, you will see a green "Zoom connected" badge</li>
         </ol>
 
-        <h2>Permissions &amp; Scopes</h2>
-        <p>Structora requests only the minimum scopes required to operate. Typical scopes include:</p>
+        <h2>Permissions</h2>
+        <p>Structora requests the following Zoom permissions:</p>
         <ul>
-          <li><code>user:read</code> — to identify the signed-in Zoom user and display account context.</li>
-          <li><code>meeting:read</code> — to retrieve metadata for meetings you choose to structure.</li>
-          <li><code>recording:read</code> (optional) — to import meeting transcripts or recordings when you explicitly request it.</li>
+          <li><strong>Create meetings:</strong> Schedule Zoom meetings directly from Structora</li>
+          <li><strong>Update/delete meetings:</strong> Modify or cancel scheduled meetings</li>
+          <li><strong>Create invite links:</strong> Generate meeting invitation links for participants</li>
+          <li><strong>Read cloud recordings:</strong> Access meeting recordings and transcripts after meetings end</li>
         </ul>
-        <p>You can review and revoke these scopes at any time from the Zoom Marketplace.</p>
 
-        <h2>Using Structora in a Meeting</h2>
+        <h2>What data does Structora access?</h2>
+        <ul>
+          <li>Meeting ID and join URL (stored for scheduling)</li>
+          <li>Cloud recording transcripts (stored encrypted, linked to your project)</li>
+          <li>Structora does NOT access your Zoom contacts, chat messages, or account settings</li>
+        </ul>
+
+        <h2>Using the Integration</h2>
         <ol>
-          <li>Start or join a Zoom meeting as you normally would.</li>
-          <li>Open the <strong>Apps</strong> panel in the Zoom client and select <strong>Structora</strong>.</li>
-          <li>Sign in with your Structora account if prompted.</li>
-          <li>Choose an action — Summarize, Extract Ontology, or Save to Workspace.</li>
-          <li>Review the generated structure in the Structora side panel or open it in your Structora workspace after the meeting.</li>
+          <li><strong>Schedule a meeting:</strong> Select Zoom as the provider, set time and participants, click Schedule</li>
+          <li><strong>Join a meeting:</strong> Click "Join" on any scheduled Zoom meeting to open it in the embedded viewer</li>
+          <li><strong>After the meeting:</strong> Click "Fetch Transcript" to pull the cloud recording transcript. AI analysis will automatically extract key decisions, action items, and risks.</li>
+        </ol>
+
+        <h2>Removing the Integration</h2>
+        <ol>
+          <li>In the Meetings tab, select Zoom as provider and click "Disconnect"</li>
+          <li>To fully remove, go to <a href="https://zoom.us/profile" target="_blank" rel="noopener">zoom.us/profile</a> → Apps → find Structora → Remove</li>
+          <li>All stored meeting data can be deleted by contacting <a href="mailto:info@ajamais.ai">info@ajamais.ai</a></li>
         </ol>
 
         <h2>Data Handling</h2>
-        <p>Structora only processes the content you explicitly send to it. We transmit data over TLS and store it encrypted at rest. Access is limited to authenticated users within your workspace.</p>
-        <p>For full details, see the <a href="/structora/privacy">Privacy Policy</a>.</p>
-
-        <h2>Uninstallation</h2>
-        <ol>
-          <li>Sign in to the Zoom App Marketplace.</li>
-          <li>Click <strong>Manage</strong> &rarr; <strong>Installed Apps</strong>.</li>
-          <li>Find <strong>Structora</strong> and click <strong>Remove</strong>.</li>
-        </ol>
-        <p>Upon uninstallation, OAuth tokens are revoked immediately and associated data is deleted within 30 days.</p>
-
-        <h2>Troubleshooting</h2>
-        <h3>The app doesn't appear in my Zoom client</h3>
-        <p>Ensure your Zoom client is updated to the latest version and that your admin has approved Structora for your organization.</p>
-        <h3>Authorization failed</h3>
-        <p>Sign out of Zoom and Structora, then retry the installation. If the error persists, contact us below with the error message and timestamp.</p>
-        <h3>Missing data after a meeting</h3>
-        <p>Structora processes only content you explicitly send. If expected content is missing, verify the action was triggered during the meeting or contact support.</p>
+        <ul>
+          <li>Transcripts are stored encrypted in Structora's database</li>
+          <li>Default retention: 30 days (configurable)</li>
+          <li>Users can delete transcripts at any time from the platform</li>
+          <li>Disconnecting Zoom does not automatically delete previously stored transcripts</li>
+        </ul>
 
         <h2>Support</h2>
-        <p>Need help? Visit <a href="/structora/support">Structora Support</a> or email:</p>
-        <a href="mailto:structora@ajamais.ai" class="legal-email">structora@ajamais.ai</a>
+        <p>Email: <a href="mailto:info@ajamais.ai" class="legal-email">info@ajamais.ai</a></p>
       </div>
     </div>
   </main>
