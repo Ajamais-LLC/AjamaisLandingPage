@@ -271,6 +271,12 @@ h1, h2, h3 {
   color: var(--text-2);
 }
 
+.partner-logo--nvidia img {
+  width: 108px;
+  height: 108px;
+  border-radius: 0;
+}
+
 /* ---------- PRODUCTS ---------- */
 .products {
   padding: 120px 0;
